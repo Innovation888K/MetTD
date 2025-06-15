@@ -24,8 +24,6 @@ BP = MyNet(Dem1=input_dim,
            Dem5=2000,
            Dem6=1000,
            Dem7=13)
-
-# 加载模型参数
 BP.load_state_dict(torch.load('mynet_model.pth'))
 
 BP.train()
