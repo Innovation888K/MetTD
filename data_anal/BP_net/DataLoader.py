@@ -14,7 +14,7 @@ class ExcelDataset(Dataset):
         self.features = self.features.T
         self.features.fillna(0, inplace=True)
         self.features = self.features.values
-        self.labels = self.labels_data.iloc[:, -1].values  # 获取最后一行的标签
+        self.labels = self.labels_data.iloc[:, -1].values
         self.labels, self.label_mapping = pd.factorize(self.labels)
         self.one_hot_labels = np.eye(13)[self.labels]
         assert len(self.features) == len(self.one_hot_labels), "Feature num not match"
@@ -23,8 +23,8 @@ class ExcelDataset(Dataset):
         return len(self.features)
 
     def __getitem__(self, idx):
-        sample = torch.tensor(self.features[idx, :], dtype=torch.float32)  # 获取第 idx 列作为样本
-        label = torch.tensor(self.one_hot_labels[idx], dtype=torch.float32)  # 获取第 idx 行作为一维标签
+        sample = torch.tensor(self.features[idx, :], dtype=torch.float32)
+        label = torch.tensor(self.one_hot_labels[idx], dtype=torch.float32)
         return sample, label
 
 
@@ -46,7 +46,7 @@ if __name__ == "__main__":
                Dem7=13)
     train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
     test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
-    num_epochs = 5  # 设置训练的轮数
+    num_epochs = 5  
     for epoch in range(num_epochs):
         total_loss = 0.0
         BP.train()
