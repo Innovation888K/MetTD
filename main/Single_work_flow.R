@@ -18,12 +18,11 @@ library(tidymass)
 library(progressr)
 library(metpath)
 filter='(M+H)+'
-filepath="D:\\wyc\\伪时序\\sh"
+filepath="D:\\"
 for(i in list.files(filepath)){
 root=paste0(filepath,'\\',i)
 aux_root=root
 drug_num='result'
-# root = paste0(aux_root,"\\", drug_num)
 polar='positive'
   metabolism_annotation(
     path = root,
@@ -38,12 +37,10 @@ polar='positive'
     x=readxl::read_excel(paste0(root,"\\Result\\All_annotations.xlsx"))
   }
   express=read.csv(paste0(root,"\\Result\\knn_expression_data.csv"))
-  #express=readxl::read_excel(paste0(root,"\\Result\\knn_expression_data.xlsx"))
   rownames(express)=express$X
   express=express[x$variable_id,]
   x$Level=express
   temp=express
-  
   model_peak = x$Level[, 2:((ncol(express)+1)/2)]
   baseline =x$Level[,(((ncol(express)+1)/2)+1):(ncol(express))]
   bl=lapply(1:nrow(baseline),function(x){
@@ -68,12 +65,6 @@ polar='positive'
   model_level=ml
   temp = dplyr::select(x, -'Level')
   temp$Level = ml
-  # for (i in 1:nrow(temp)) {
-  #   aux = as.numeric(model_level[temp$variable_id[i], ])
-  #   if (!is.null(aux)) {
-  #     temp$Level[i] = aux
-  #   }
-  # }
   tryCatch({
     temp$Level=do.call(rbind,temp$Level)
   },error=function(e){
@@ -86,7 +77,7 @@ polar='positive'
   p = get_p(Model, 500, do_zscore = T,n_cores=8)
   Model$p = p
   scatter_plot(Model, 500, first_n = 5, p_limit = 0.5)
-  ggsave("靶点鉴别.pdf",width=17,height=10)
+  ggsave("result.pdf",width=17,height=10)
   setwd(root)
   LPS = data.frame(
     p = p,
@@ -94,12 +85,6 @@ polar='positive'
     enzyme = Model$enzyme$Compound.name
   )
   write.xlsx(LPS, file = paste0(root, '\\', drug_num, '.xlsx'))
-  
-  
-  
-  
-  
-  
   sample_data=LPS
   sample_data=sample_data[order(t(sample_data[,"score"]), decreasing = T),]
   sample_data=sample_data[order(t(sample_data[,'p'])), ]
@@ -143,9 +128,6 @@ polar='positive'
   }
   ge=ge[!is.na(ge)]
   ge=unique(ge)
-  
-  # stander_gene=readxl::read_excel("D:\\wyc\\AD模型小鼠代谢组数据\\ad_target_gene.xlsx")
-  # which (stander_gene$Gene %in% ge)
   write.csv(ge,file="first30.csv")
 }
   
