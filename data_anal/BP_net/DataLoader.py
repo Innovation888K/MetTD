@@ -28,7 +28,7 @@ class ExcelDataset(Dataset):
         return sample, label
 
 
-# 使用示例
+
 if __name__ == "__main__":
     dataset = ExcelDataset()
     train_indices = (pd.read_csv("train_indices.csv")['train_indices'] - 1).tolist()
