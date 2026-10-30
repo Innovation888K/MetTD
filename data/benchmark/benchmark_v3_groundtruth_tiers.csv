@@ -1,0 +1,32 @@
+﻿accession,target,meta_type,study_title,meta_entries,v3_entries,tier_proposed,v3_tier,tier
+MTBLS1973,IDH1,IDH1-related,IDH1 mutations induce organelle defects via dysregulated phospholipids,6,6,T1 genetic,T1 genetic,T1 genetic
+ST002423,ATP7B,genetic,Integrated gut microbiome and lipidomics in Wilson disease models,6,6,T1 genetic,T1 genetic,T1 genetic
+ST002563,PMM2-CDG,inferred,PMM2-CDG metabolomics after siRNA AKR1B1 knockdown,4,4,T1 genetic,T1 genetic,T1 genetic
+ST003347,ADSL,inferred,ADSL deficiency drives mitochondrial dysfunction,4,4,T1 genetic,T1 genetic,T1 genetic
+MTBLS2159,ACLY,inferred,Macrophage ATP citrate lyase deficiency stabilizes atherosclerotic pla,2,2,T1 genetic,T1 genetic,T1 genetic
+ST000548,IDH1/IDH2,IDH1-related/inferred,Common feature of leukemia-associated IDH1 and IDH2 mutations,2,2,T1 genetic,T1 genetic,T1 genetic
+ST000276,IDH1,IDH1-related,IDH1 and glioma knockdown IDH1,1,1,T1 genetic,T1 genetic,T1 genetic
+ST000714,IDH1,IDH1-related,"Effect of genetic lesions on glioblastoma (NP, NPA, NPAI, NS)",1,1,T1 genetic,T1 genetic,T1 genetic
+ST002696,ATP10A,genetic,ATP10A deficiency causes diet-induced dyslipidemia in female mice,1,1,T1 genetic,T1 genetic,T1 genetic
+MTBLS2130,IDH1,IDH1-related,Metabolic drug response phenotyping in colorectal cancer organoids,6,6,T2 pharmacological,T2 pharmacological,T2 pharmacological
+ST000583,IDH1,IDH1-related,Metabolomics of oral biofilms exposed to arginine and fluoride,2,2,T2 pharmacological,T2 pharmacological,T3 inferred
+ST002527,IDH1,IDH1-related,HPLC-MS-MS amino acid levels in PDAC IF upon arginase inhibition,2,2,T2 pharmacological,T2 pharmacological,T3 inferred
+ST002532,IDH1,IDH1-related,Nontargeted metabolomics on kidney tissue treated with cisplatin,1,1,T2 pharmacological,T2 pharmacological,T3 inferred
+ST000604,IDH1,IDH1-related,Impact of high sugar diet on L-arginine metabolism (part II),14,14,T3 inferred,T3 inferred,T3 inferred
+MTBLS549,IDH1,IDH1-related,Diverse metabolic reactions activated during 58-hr fasting in human bl,9,9,T3 inferred,T3 inferred,T3 inferred
+ST002221,ACLY,inferred,Glutaminolysis contribution to aspartate through ACLY in ccRCC,9,9,T3 inferred,T3 inferred,T3 inferred
+ST001451-2,ACSL1,inferred,Eleostearic acid effects on TAGs and oxLipids,4,4,T3 inferred,T3 inferred,T3 inferred
+ST002231,DHODH/IDH1,IDH1-related/inferred,HOG-EV vs HOG-R132H cells with/without BAY 2402234,4,4,T3 inferred,T3 inferred,T1 genetic
+ST002963,G6PD,inferred,GSH/GSSG levels in KRAS-driven lung tumors,4,4,T3 inferred,T3 inferred,T3 inferred
+ST003423,ACLY/ACLY;ACSS2,inferred,Impact of ACLY and ACSS2 on MASLD development,4,4,T3 inferred,T3 inferred,T2 pharmacological
+ST000694,ACSL5,inferred,Bile acids composition differences in ACSL5 KO vs floxed mice,3,3,T3 inferred,T3 inferred,T1 genetic
+ST001441,SUCLA2,inferred,Metabolomics of patient-derived fibroblasts,2,2,T3 inferred,T3 inferred,T1 genetic
+MTBLS3020,IDH1,IDH1-related,Arginine-induced metabolomic perturbation in Streptococcus mutans,1,1,T3 inferred,T3 inferred,T3 inferred
+MTBLS3128,IDH1,IDH1-related,Serum predose metabolic profiling for prediction of rosuvastatin PK,10,1,T3 inferred,T3 inferred,T3 inferred
+ST000302,IDH1,IDH1-related,Isocitrate dehydrogenase-1/glioma fluxomics study,9,1,T3 inferred,T3 inferred,T3 inferred
+MTBLS11858,AK4,MISSING,(no metadata row yet),0,1,T? needs entry,T? needs entry,T? needs entry
+MTBLS1967,IDH1,MISSING,(no metadata row yet),0,1,T? needs entry,T? needs entry,T? needs entry
+MTBLS1974,IDH1,MISSING,(no metadata row yet),0,1,T? needs entry,T? needs entry,T? needs entry
+MTBLS2085,NQO1,MISSING,(no metadata row yet),0,1,T? needs entry,T? needs entry,T? needs entry
+MTBLS3129,IDH1,MISSING,(no metadata row yet),0,1,T? needs entry,T? needs entry,T? needs entry
+MTBLS8062,NAMPT,MISSING,(no metadata row yet),0,1,T? needs entry,T? needs entry,T? needs entry

@@ -1,0 +1,10 @@
+R version 4.3.2 (2023-10-31 ucrt)
+survival 3.8.3
+dplyr 1.1.4
+openxlsx 4.2.8
+readxl 1.4.5
+igraph 2.1.4
+tidymass 1.0.9
+# reproducibility of the R side: source(main/MetTD.R); the scoring and permutation
+# functions now default to formula = "F1" and correction = "add1", matching
+# src/mettd_core.c --formula 1 --pcorr add1

@@ -1,0 +1,7 @@
+model_dist.bin
+*.o
+__pycache__/
+.Rhistory
+_scratch/
+mettd_core
+mettd_core.exe

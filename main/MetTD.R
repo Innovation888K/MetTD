@@ -281,7 +281,16 @@ get_ref_idx = function(meta_data,
   ref_idx = mutiple_match(db_object,meta_db_obj)
   return(ref_idx)
 }
-get_local_score = function(Model,abs=F,do_zscore=T) {
+#' Enzyme scoring.
+#'
+#' formula = "F1" (default, and the definition used throughout the manuscript)
+#'   S(E) = sum_i z_i^2 / D_iE^2, i.e. each standardized change is squared
+#'   individually and then weighted by the inverse squared network distance.
+#' formula = "F0" reproduces the earlier behaviour (sum of the signed weighted
+#'   changes, squared afterwards) and is kept only so that previously published
+#'   result files can be regenerated.
+get_local_score = function(Model,abs=F,do_zscore=T,formula=c("F1","F0")) {
+  formula = match.arg(formula)
   identified_meta = Model$ref
   if(abs){
     identified_meta$level=abs(identified_meta$level)
@@ -295,10 +304,11 @@ get_local_score = function(Model,abs=F,do_zscore=T) {
     D = dis_mat[, enzyme$idx[x]]
     D = D[as.numeric(identified_meta$idx)]
     D = D[!D == 0]
-    D = D * D
-    D = 1 / D
-    score = D * identified_meta$level
-    score = sum(score / sum(D))
+    w = 1 / (D * D)
+    if (formula == "F1") {
+      return(sum(w * identified_meta$level^2))
+    }
+    score = sum(w * identified_meta$level / sum(w))
     return(score^2)
   })
   local_score = data.frame(score = do.call(rbind, local_score))
@@ -306,7 +316,9 @@ get_local_score = function(Model,abs=F,do_zscore=T) {
   rownames(local_score)=Model$enzyme$Compound.name
   return(local_score)
 }
-get_p = function(Model,repeat_time,p=NULL,n_cores=10,do_zscore=T) {
+get_p = function(Model,repeat_time,p=NULL,n_cores=10,do_zscore=T,
+                 formula=c("F1","F0"),correction=c("add1","old")) {
+  formula = match.arg(formula); correction = match.arg(correction)
   pb = txtProgressBar(style = 3)
   if(is.null(p)){
     p = data.frame(p_value = rep(0, nrow(Model$local_score)))
@@ -317,13 +329,13 @@ get_p = function(Model,repeat_time,p=NULL,n_cores=10,do_zscore=T) {
   with_progress({
     p = progressor(along = 1:repeat_time)
     object = future_lapply(
-      X = 1:repeat_time, 
+      X = 1:repeat_time,
       FUN = function(i) {
         p()
         setTxtProgressBar(pb, i / repeat_time)
         Model$dis_mat = shuffle_matrix(Model$distance_martix)
         return(
-          get_local_score(Model,do_zscore = do_zscore)
+          get_local_score(Model,do_zscore = do_zscore,formula = formula)
         )
       }
     )
@@ -334,9 +346,14 @@ get_p = function(Model,repeat_time,p=NULL,n_cores=10,do_zscore=T) {
     return(object[x]>Model$local_score)
   })
   temp=do.call(cbind,temp)
-  p=rowSums(temp)
-  p=lapply(1:length(p),function(x){
-    return(max(p[x],1))
+  k=rowSums(temp)
+  # correction = "add1" (default): (k+1)/(B+1), the finite-permutation estimator
+  # used for every p-value in the manuscript; "old" reproduces max(k,1)/B.
+  if (correction == "add1") {
+    return((k + 1) / (repeat_time + 1))
+  }
+  p=lapply(1:length(k),function(x){
+    return(max(k[x],1))
   })
   p=do.call(rbind,p)
   return(p / repeat_time)

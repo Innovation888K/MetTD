@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "MetTD: metabolomics-based enzymatic target prioritisation by metabolic network proximity"
+version: 1.1.0
+date-released: "2026-10-30"
+repository-code: "https://github.com/Innovation888K/MetTD"
+license: MIT
+authors:
+  - name: "Wang, Yichen"
+  - name: "Guo, Minsong"
+  - name: "Shen, Xiaotao"
+  - name: "Xu, Tengfei"
+  - name: "Liu, Xuesong"
