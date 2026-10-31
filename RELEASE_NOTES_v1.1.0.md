@@ -3,10 +3,7 @@
 Version used for the revised manuscript.
 
 ## Behaviour changes relative to 1.0.x
-- Score is now `S(E) = sum_i z_i^2 / D_iE^2` (each standardized change squared
-  individually, then weighted by inverse squared distance). The previous
-  `(sum_i w_i z_i / sum_i w_i)^2` remains available as `--formula 0` /
-  `formula = "F0"` for regenerating older result files.
+- Score is now `S(E) = sum_i z_i^2 / D_iE^2`.
 - Permutation p-values use `(k+1)/(B+1)`; the smallest attainable p with B = 5,000
   is 2.0e-04. `--pcorr old` reproduces the previous `max(k,1)/B`.
 - Benjamini-Hochberg q-values across all 1,126 enzymes are reported with every
