@@ -4,10 +4,7 @@ Metabolomics-based Target iDentification: prioritises the enzymes whose local
 metabolic neighbourhood is perturbed, by combining standardized metabolite abundance
 changes with metabolite-enzyme topological distance in a genome-scale reaction network.
 
-**Version 1.1.0** is the version used for the revised manuscript
-(*MetTD: automated inference of enzymatic targets prioritisation through metabolic
-network proximity analysis*). It differs from the code released with the original
-submission in two documented ways, listed under [What changed in 1.1.0](#what-changed-in-110).
+
 
 ## Equation implemented
 
