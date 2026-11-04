@@ -66,7 +66,7 @@ Full-scale run (requires `model_dist.bin`, see `data/network/DISTANCE_MATRIX.md`
 ## Data availability
 
 * In-house HepG2 LC-MS data, sample metadata, annotations and target-ranking outputs:
-  deposited under MetaboLights accession **[to be filled on submission]**; the raw and
+  deposited under MetaboLights accession; the raw and
   processed files are mirrored in the archive linked from [CITATION.cff](CITATION.cff).
 * Public benchmark: every record in `data/benchmark/benchmark_v3.csv` names its
   MetaboLights / Metabolomics Workbench accession and its two sample groups, so the
